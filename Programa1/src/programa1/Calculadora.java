@@ -34,6 +34,7 @@ public class Calculadora {
 			System.out.println("Press <Enter> to try again");
 			if(in.nextLine() != null) {
 				in.nextLine();
+				clearScreen();
 				main(args);
 			}
 		}
@@ -50,6 +51,7 @@ public class Calculadora {
 				System.out.println("Press <Enter> to try again");
 				if(in.nextLine() != null) {
 					in.nextLine();
+					clearScreen();
 					main(args);
 				}
 			}
@@ -65,6 +67,7 @@ public class Calculadora {
 			System.out.println("Press <Enter> to perform another operation");
 			if(in.nextLine() != null) {
 				in.nextLine();
+				clearScreen();
 				main(args);
 			}
 		}
@@ -81,6 +84,7 @@ public class Calculadora {
 				System.out.println("Press <Enter> to try again");
 				if(in.nextLine() != null) {
 					in.nextLine();
+					clearScreen();
 					main(args);
 				}
 			}
@@ -96,6 +100,7 @@ public class Calculadora {
 				System.out.println("Press <Enter> to try again");
 				if(in.nextLine() != null) {
 					in.nextLine();
+					clearScreen();
 					main(args);
 				}
 			}
@@ -109,6 +114,7 @@ public class Calculadora {
 			System.out.println("Press <Enter> to perform another operation");
 			if(in.nextLine() != null) {
 				in.nextLine();
+				clearScreen();
 				main(args);
 			}
 		}
@@ -157,7 +163,37 @@ public class Calculadora {
 		System.out.println("Press <Enter> to perform another operation");
 		if(in.nextLine() != null) {
 			in.nextLine();
+			clearScreen();
 			main(args);
 		}	
+	}
+	
+	public static void clearScreen() {
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
 	}
 }
