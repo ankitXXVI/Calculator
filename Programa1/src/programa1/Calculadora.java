@@ -2,8 +2,7 @@ package programa1;
 
 import java.util.Scanner;
 
-public class Calculadora {
-	
+public class Calculadora {	
 	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
@@ -15,79 +14,62 @@ public class Calculadora {
 		makeStartScreen();
 		operation = in.nextLine();
 		System.out.println("");
-		
-		if(!operation.equals("1") && !operation.equals("2") && !operation.equals("3")
-		&& !operation.equals("4") && !operation.equals("5") && !operation.equals("6")
-		&& !operation.equals("7") && !operation.equals("8") && !operation.equals("9")
-		&& !operation.equals("10")) {
+		if(operation.contentEquals("1")) {
+			System.out.println("You selected: Addition");
+			System.out.println("");
+			doAddition(args, var1, var2, result, operation, in);
+		}
+		else if(operation.contentEquals("2")) {
+			System.out.println("You selected: Substraction");
+			System.out.println("");
+			doSubstraction(args, var1, var2, result, operation, in);
+		}
+		else if(operation.contentEquals("3")) {
+			System.out.println("You selected: Multiplication");
+			System.out.println("");
+			doMultiplication(args, var1, var2, result, operation, in);
+		}
+		else if(operation.contentEquals("4")) {
+			System.out.println("You selected: Division");
+			System.out.println("");
+			doDivision(args, var1, var2, result, operation, in);
+		}
+		else if(operation.contentEquals("5")) {
+			System.out.println("You selected: Exponentiation");
+			System.out.println("");
+			doExponentiation(args, var1, var2, result, operation, in);
+		}
+		else if(operation.contentEquals("6")) {
+			System.out.println("You selected: Factorial");
+			System.out.println("");
+			doFactorial(args, var1, result, operation, in);
+		}
+		else if(operation.contentEquals("7")) {
+			System.out.println("You selected: Square root");
+			System.out.println("");
+			doSquareRoot(args, var1, result, operation, in);
+		}
+		else if(operation.contentEquals("8")) {
+			System.out.println("You selected: Percentage value of a number");
+			System.out.println("");
+			doPercentageValue(args, var1, var2, result, operation, in);
+		}
+		else if(operation.contentEquals("9")) {
+			System.out.println("You selected: Percentage substraction from a number");
+			System.out.println("");
+			doPercentageSubstraction(args, var1, var2, result, operation, in);
+		}
+		else if(operation.contentEquals("10")){
+			System.out.println("You selected: Percentage addition to a number");
+			System.out.println("");
+			doPercentageAddition(args, var1, var2, result, operation, in);
+		}
+		else {
 			System.out.println("ERROR: Operation not permitted!");
 			restart(args, in);
 		}
-		
-		else if(operation.equals("6")) {
-			doFactorial(args, var1, result, operation, in);
-		}
-		
-		else if(operation.equals("5")) {
-			doExponentiation(args, var1, var2, result, operation, in);
-		}
-		
-		else if(operation.equals("7")) {
-			doSquareRoot(args, var1, result, operation, in);
-		}
-		
-		else if(operation.equals("8")) {
-			doPercentageValue(args, var1, var2, result, operation, in);
-		}
-		
-		else if(operation.equals("9")) {
-			doPercentageSubstraction(args, var1, var2, result, operation, in);
-		}
-		
-		else if(operation.equals("10")) {
-			doPercentageAddition(args, var1, var2, result, operation, in);
-		}
-		
-		else {
-			System.out.println("NOTE: Use commas for decimal values.");
-			System.out.println("Insert your first value");
-			if(in.hasNextDouble()) {
-				var1 = in.nextDouble();
-			} else {
-				System.out.println("*****Value not permitted!*****");
-				restart(args, in);
-			}
-			System.out.println("");
-			System.out.println("");
-			System.out.println("Insert your second value:");
-			if(in.hasNextDouble()) {
-				var2 = in.nextDouble();
-			} else {
-				System.out.println("*****Value not permitted!*****");
-				restart(args, in);
-			}
-			System.out.println("");
-			System.out.println("");
-			
-			if(operation.equals("1")) {
-				doAddition(var1, var2, result);
-			}
-			
-			else if(operation.equals("2")) {
-				doSubstraction(var1, var2, result);
-			}
-			
-			else if(operation.equals("3")) {
-				doMultiplication(var1, var2, result);
-			}
-			
-			else if(operation.equals("4")) {
-				doDivision(var1, var2, result);
-			}
-		}
 		restart(args, in);
-	}
-	
+	}	
 	public static void makeStartScreen() {
 		System.out.println("************************************");
 		System.out.println("******Welcome to my Calculator!*****");
@@ -106,6 +88,7 @@ public class Calculadora {
 		System.out.println("(9) Percentage substraction from a number");
 		System.out.println("(10) Percentage addition to a number");
 		System.out.println("");
+		System.out.println("Enter your selection:");
 	}
 	public static void clearScreen() {
 		System.out.println("");
@@ -144,19 +127,95 @@ public class Calculadora {
 			main(args);
 		}	
 	}
-	public static void doAddition(double var1, double var2, double result) {
+	public static void doAddition(String[] args, double var1, double var2, double result, String operation, Scanner in) {
+		System.out.println("NOTE: Use commas for decimal values.");
+		System.out.println("Insert your first value");
+		if(in.hasNextDouble()) {
+			var1 = in.nextDouble();
+		} else {
+			System.out.println("*****Value not permitted!*****");
+			restart(args, in);
+		}
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Insert your second value:");
+		if(in.hasNextDouble()) {
+			var2 = in.nextDouble();
+		} else {
+			System.out.println("*****Value not permitted!*****");
+			restart(args, in);
+		}
+		System.out.println("");
+		System.out.println("");
 		result = var1 + var2;
 		System.out.println("The result is: " + result);
 	}
-	public static void doSubstraction(double var1, double var2, double result) {
+	public static void doSubstraction(String[] args, double var1, double var2, double result, String operation, Scanner in) {
+		System.out.println("NOTE: Use commas for decimal values.");
+		System.out.println("Insert your first value");
+		if(in.hasNextDouble()) {
+			var1 = in.nextDouble();
+		} else {
+			System.out.println("*****Value not permitted!*****");
+			restart(args, in);
+		}
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Insert your second value:");
+		if(in.hasNextDouble()) {
+			var2 = in.nextDouble();
+		} else {
+			System.out.println("*****Value not permitted!*****");
+			restart(args, in);
+		}
+		System.out.println("");
+		System.out.println("");
 		result = var1 - var2;
 		System.out.println("The result is: " + result);
 	}
-	public static void doMultiplication(double var1, double var2, double result) {
+	public static void doMultiplication(String[] args, double var1, double var2, double result, String operation, Scanner in) {
+		System.out.println("NOTE: Use commas for decimal values.");
+		System.out.println("Insert your first value");
+		if(in.hasNextDouble()) {
+			var1 = in.nextDouble();
+		} else {
+			System.out.println("*****Value not permitted!*****");
+			restart(args, in);
+		}
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Insert your second value:");
+		if(in.hasNextDouble()) {
+			var2 = in.nextDouble();
+		} else {
+			System.out.println("*****Value not permitted!*****");
+			restart(args, in);
+		}
+		System.out.println("");
+		System.out.println("");
 		result = var1 * var2;
 		System.out.println("The result is: " + result);
 	}
-	public static void doDivision(double var1, double var2, double result) {
+	public static void doDivision(String[] args, double var1, double var2, double result, String operation, Scanner in) {
+		System.out.println("NOTE: Use commas for decimal values.");
+		System.out.println("Insert your first value");
+		if(in.hasNextDouble()) {
+			var1 = in.nextDouble();
+		} else {
+			System.out.println("*****Value not permitted!*****");
+			restart(args, in);
+		}
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Insert your second value:");
+		if(in.hasNextDouble()) {
+			var2 = in.nextDouble();
+		} else {
+			System.out.println("*****Value not permitted!*****");
+			restart(args, in);
+		}
+		System.out.println("");
+		System.out.println("");
 		result = var1 / var2;
 		System.out.println("The result is: " + result);
 	}
