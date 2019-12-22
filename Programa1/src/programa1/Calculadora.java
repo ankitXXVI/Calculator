@@ -49,22 +49,40 @@ public class Calculadora {
 		}
 		
 		else {
-			runValueEntry(args, in, var1, var2);
+			System.out.println("NOTE: Use commas for decimal values.");
+			System.out.println("Insert your first value");
+			if(in.hasNextDouble()) {
+				var1 = in.nextDouble();
+			} else {
+				System.out.println("*****Value not permitted!*****");
+				restart(args, in);
+			}
+			System.out.println("");
+			System.out.println("");
+			System.out.println("Insert your second value:");
+			if(in.hasNextDouble()) {
+				var2 = in.nextDouble();
+			} else {
+				System.out.println("*****Value not permitted!*****");
+				restart(args, in);
+			}
+			System.out.println("");
+			System.out.println("");
 			
 			if(operation.equals("1")) {
-				doAddition(var1, var2);
+				doAddition(var1, var2, result);
 			}
 			
 			else if(operation.equals("2")) {
-				doSubstraction(var1, var2);
+				doSubstraction(var1, var2, result);
 			}
 			
 			else if(operation.equals("3")) {
-				doMultiplication(var1, var2);
+				doMultiplication(var1, var2, result);
 			}
 			
 			else if(operation.equals("4")) {
-				doDivision(var1, var2);
+				doDivision(var1, var2, result);
 			}
 		}
 		restart(args, in);
@@ -126,44 +144,19 @@ public class Calculadora {
 			main(args);
 		}	
 	}
-	public static void runValueEntry(String[] args, Scanner in, double var1, double var2) {
-		System.out.println("NOTE: Use commas for decimal values.");
-		System.out.println("Insert your first value");
-		if(in.hasNextDouble()) {
-			var1 = in.nextDouble();
-		} else {
-			System.out.println("*****Value not permitted!*****");
-			restart(args, in);
-		}
-		System.out.println("");
-		System.out.println("");
-		System.out.println("Insert your second value:");
-		if(in.hasNextDouble()) {
-			var2 = in.nextDouble();
-		} else {
-			System.out.println("*****Value not permitted!*****");
-			restart(args, in);
-		}
-		System.out.println("");
-		System.out.println("");
-	}
-	public static void doAddition(double var1, double var2) {
-		double result;
+	public static void doAddition(double var1, double var2, double result) {
 		result = var1 + var2;
 		System.out.println("The result is: " + result);
 	}
-	public static void doSubstraction(double var1, double var2) {
-		double result;
+	public static void doSubstraction(double var1, double var2, double result) {
 		result = var1 - var2;
 		System.out.println("The result is: " + result);
 	}
-	public static void doMultiplication(double var1, double var2) {
-		double result;
+	public static void doMultiplication(double var1, double var2, double result) {
 		result = var1 * var2;
 		System.out.println("The result is: " + result);
 	}
-	public static void doDivision(double var1, double var2) {
-		double result;
+	public static void doDivision(double var1, double var2, double result) {
 		result = var1 / var2;
 		System.out.println("The result is: " + result);
 	}
